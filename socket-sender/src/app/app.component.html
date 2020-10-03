@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="card">
+    <h3 class="card__title">Rabbit test</h3>
+    <form
+      novalidate
+      (submit)="send()"
+      [formGroup]="form"
+      class="card__form"
+    >
+      <div class="form-field">
+        <label for="field1">Логин</label>
+        <input
+          id="field1"
+          type="text"
+          formControlName="field1"
+        >
+        <small *ngIf="
+            formField1.touched &&
+            formField1.hasError('required')">Обязательное поле</small>
+      </div>
+
+      <div class="form-field">
+        <label for="field1">Текст из RabbitMQ</label>
+        <input
+          id="field2"
+          type="text"
+          formControlName="field2"
+          readonly=true
+        >
+      </div>
+
+      <div class="form-actions">
+        <button type="submit">Отправить</button>
+      </div>
+    </form>
+  </div>
+</div>

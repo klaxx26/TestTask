@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.card {
+  width: 300px;
+  padding: 1rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border: solid darkgray 1px;
+  border-radius: 3px;
+
+  &__title {
+    align-self: center;
+  }
+
+  &__form {
+    width: 100%;
+  }
+}
+
+.form-field {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+
+  & label {
+    margin-bottom: 0.5rem;
+  }
+
+  & input {
+    width: 100%;
+  }
+
+  & small {
+    color: red;
+  }
+}
+
+.form-actions {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
