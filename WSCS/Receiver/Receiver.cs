@@ -3,10 +3,6 @@ using System.Text;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using Newtonsoft.Json;
-using System.Linq;
-using System.Collections.Generic;
-
-
 
 namespace WSCS
 {
@@ -37,11 +33,11 @@ namespace WSCS
 
                             User user = JsonConvert.DeserializeObject<User>(message);  
                             Program.sockServ.SendMsg(user);
+
+                            Console.WriteLine("Received from Rabbit: {0}", message);
                         } finally {
 
                         }
-
-                        Console.WriteLine("Received from Rabbit: {0}", message);
                     };
                     channel.BasicConsume(queue: "hello", autoAck: true, consumer: consumer);
 

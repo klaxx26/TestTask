@@ -1,8 +1,6 @@
 using System;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Threading;
 using System.Linq;
@@ -26,9 +24,6 @@ namespace WSCS
 
         public void Init()
         {
-            //ip = "127.0.0.1";
-            //port = 8080;
-
             server = new TcpListener(IPAddress.Parse(ip), port);
             server.Start();
             Console.WriteLine("Server has started on {0}:{1}, Waiting for a connections...", ip, port);

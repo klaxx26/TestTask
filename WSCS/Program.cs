@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Text;
-using RabbitMQ.Client;
-using RabbitMQ.Client.Events;
-using Newtonsoft.Json;
-using System.Linq;
-using System.Collections.Generic;
 using System.Threading;
 
 namespace WSCS
