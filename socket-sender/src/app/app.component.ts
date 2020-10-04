@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   
   form = new FormGroup({
     field1: new FormControl('', [Validators.required]),
-    field2: new FormControl('Текст из RabbitMQ'),
+    field2: new FormControl(''),
   });
 
   @ViewChild('rabbText') rabbText: ElementRef;

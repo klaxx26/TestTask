@@ -26,15 +26,13 @@ namespace WSCS
                 {
                     channel.QueueDeclare(queue: "hello", durable: false, exclusive: false, autoDelete: false, arguments: null);
 
-                    Console.WriteLine(" [*] Waiting for messages.");
+                    Console.WriteLine("Waiting for messages from Rabbit");
 
                     var consumer = new EventingBasicConsumer(channel);
                     consumer.Received += (model, ea) =>
                     {
-                        Console.WriteLine("Im in queue");
                         var body = ea.Body.ToArray();
                         var message = Encoding.UTF8.GetString(body);
-                        Console.WriteLine("I have message " + message);
                         try {
 
                             User user = JsonConvert.DeserializeObject<User>(message);  
@@ -43,7 +41,7 @@ namespace WSCS
 
                         }
 
-                        Console.WriteLine(" [x] Received {0}", message);
+                        Console.WriteLine("Received from Rabbit: {0}", message);
                     };
                     channel.BasicConsume(queue: "hello", autoAck: true, consumer: consumer);
 
@@ -52,8 +50,6 @@ namespace WSCS
             } catch (Exception e){
                 Console.WriteLine(e.Message);
             }
-
-            //
         }
 
     }
